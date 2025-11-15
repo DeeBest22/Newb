@@ -1,0 +1,13 @@
+{
+    "app": {
+    "inputs": [
+      "./prisma/base.prisma",
+      "./src/**/**/*.prisma"
+    ],
+      "fragments": {
+        "boilerplate": "./prisma/db-boilerplate.prisma.fragment"
+      },
+    "output": "./prisma/schema.prisma"
+  }
+  }
+  
