@@ -1,0 +1,7 @@
+model Answer {
+    text       String
+    isCorrect  Boolean  @default(false)
+    questionId Int
+    question   Question @relation(fields: [questionId], references: [id])
+    ...boilerplate
+}

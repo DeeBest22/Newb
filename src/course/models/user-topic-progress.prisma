@@ -1,0 +1,11 @@
+model UserTopicProgress {
+    userId      Int
+    topicId     Int
+    completed   Boolean
+    completedAt DateTime?
+    user        GeneralUser @relation(fields: [userId], references: [accountId])
+    topic       Topic       @relation(fields: [topicId], references: [id])
+    ...boilerplate
+
+    @@unique([userId, topicId])
+}

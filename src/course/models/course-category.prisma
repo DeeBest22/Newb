@@ -1,0 +1,5 @@
+model Category {
+    name    String   @unique
+    courses Course[]
+    ...boilerplate
+}

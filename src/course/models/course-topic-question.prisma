@@ -1,0 +1,8 @@
+model Question {
+    text    String
+    topicId Int
+    points  Int      @default(5)
+    topic   Topic    @relation(fields: [topicId], references: [id])
+    answers Answer[]
+    ...boilerplate
+}

@@ -1,0 +1,11 @@
+model UserCourseProgress {
+    userId      Int
+    courseId    Int
+    completed   Boolean     @default(false)
+    completedAt DateTime?
+    user        GeneralUser @relation(fields: [userId], references: [accountId])
+    course      Course      @relation(fields: [courseId], references: [id])
+    ...boilerplate
+
+    @@unique([userId])
+}

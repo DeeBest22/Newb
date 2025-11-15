@@ -1,0 +1,9 @@
+model Topic {
+    title     String
+    courseId  Int
+    course    Course         @relation(fields: [courseId], references: [id])
+    contents  ContentSlide[]
+    questions Question[]
+    points    Int            @default(0)
+    ...boilerplate
+}

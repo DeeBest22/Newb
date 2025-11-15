@@ -1,0 +1,12 @@
+model UserAnswer {
+    userId     Int
+    questionId Int
+    answerId   Int
+    isCorrect  Boolean
+    answeredAt DateTime @default(now())
+
+    user     GeneralUser @relation(fields: [userId], references: [accountId])
+    question Question    @relation(fields: [questionId], references: [id])
+    answer   Answer      @relation(fields: [answerId], references: [id])
+    ...boilerplate
+}

@@ -1,0 +1,8 @@
+model ContentSlide {
+    title   String
+    body    String
+    images  Json?
+    topicId Int
+    topic   Topic  @relation(fields: [topicId], references: [id])
+    ...boilerplate
+}
