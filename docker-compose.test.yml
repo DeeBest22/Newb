@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db-test:
+    image: postgres:15
+    container_name: "${DB_CONTAINER_NAME_TEST}"
+    restart: always
+    ports:
+      - "${DB_PORT_TEST}"
+    env_file:
+      - .env
+    volumes:
+      - postgres_data_test:/var/lib/postgresql/data
+    networks:
+      - internal-test
+
+  pgadmin-test:
+    image: dpage/pgadmin4
+    container_name: "${PGADMIN_CONTAINER_NAME_TEST}"
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "${PGADMIN_DEFAULT_EMAIL_TEST}"
+      PGADMIN_DEFAULT_PASSWORD: "${PGADMIN_DEFAULT_PASSWORD_TEST}"
+    ports:
+      - "${PGADMIN_PORT_TEST}:80"
+    depends_on:
+      - db-test
+    networks:
+      - internal-test
+
+networks:
+  internal-test:
+    driver: bridge
+
+volumes:
+  postgres_data_test:
+    name: newb-db-test
