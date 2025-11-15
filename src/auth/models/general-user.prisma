@@ -1,0 +1,20 @@
+model GeneralUser {
+    accountId    Int          @id
+    account      Account      @relation(fields: [accountId], references: [id], onDelete: Cascade)
+    telegramId   BigInt       @unique
+    firstName    String?
+    lastName     String?
+    username     String?      @unique
+    photoUrl     String?
+    points       Int          @default(0)
+    level        Int          @default(1)
+    referralCode String?      @unique @default(cuid())
+    referredById Int?
+    referrer     GeneralUser? @relation("UserReferrals", fields: [referredById], references: [accountId])
+
+    referredUsers GeneralUser[] @relation("UserReferrals")
+
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
+}

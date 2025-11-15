@@ -1,0 +1,14 @@
+enum AccountType {
+    ADMIN
+    GENERAL_USER
+}
+
+model Account {
+    ...boilerplate
+    type         AccountType
+    users        User[]
+    admin        Admin?
+    general_user GeneralUser?
+
+    @@index([type])
+}
