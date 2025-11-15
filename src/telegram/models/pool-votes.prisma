@@ -1,0 +1,12 @@
+model PollVotes {
+    telegramId String
+    username   String?
+    firstName  String?
+    lastName   String?
+    chatId     String
+    pollId     String
+    optionId   Int
+    points     Int     @default(100)
+
+    ...boilerplate
+}

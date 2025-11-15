@@ -1,0 +1,14 @@
+enum Status {
+    ACTIVE
+    DELETED
+}
+
+model Chat {
+    chatId   String? @unique
+    chatType String?
+    title    String?
+    username String?
+    status   Status  @default(ACTIVE)
+
+    ...boilerplate
+}

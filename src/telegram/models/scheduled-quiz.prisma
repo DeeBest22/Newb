@@ -1,0 +1,9 @@
+model ScheduledQuiz {
+    chatId             String
+    question           String
+    options            String
+    correctOptionIndex Int
+    scheduledTime      DateTime
+    status             String   @default("pending")
+    ...boilerplate
+}

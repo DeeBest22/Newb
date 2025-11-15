@@ -1,0 +1,12 @@
+model QuizWinners {
+    telegramId String
+    username   String?
+    firstName  String?
+    lastName   String?
+    chatId     String?
+    pollId     String?
+    points     Int     @default(20)
+    isClaimed  Boolean @default(false)
+
+    ...boilerplate
+}

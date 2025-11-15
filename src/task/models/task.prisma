@@ -1,0 +1,12 @@
+model Task {
+    userId      Int
+    user        GeneralUser @relation(fields: [userId], references: [accountId])
+    taskId      String
+    taskType    String
+    completed   Boolean     @default(false)
+    completedAt DateTime?
+    expiresAt   DateTime?
+    ...boilerplate
+
+    @@index([userId, taskId])
+}

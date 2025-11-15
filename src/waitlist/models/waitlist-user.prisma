@@ -1,0 +1,6 @@
+model WaitlistUser {
+    email            String  @unique
+    telegramUsername String?
+    ref              String?
+    ...boilerplate
+}
